@@ -1,0 +1,42 @@
+{% extends "common.html" %}
+
+{% block start %}
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control-plaintext" id="staticEmail" name="email" placeholder="Write the fucking email woman!!" required="True">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="username" class="col-sm-2 col-form-label">Username</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="username" name="username" required="True" placeholder="No you can not choose what to want here">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword" name="password" required="True" placeholder="we are looking">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="inputPassword" class="col-sm-2 col-form-label"> Confirm Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword" name="confirm_password" required="True">
+            </div>
+        </div>
+        <a href="/login">login</a>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}
